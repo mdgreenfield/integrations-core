@@ -50,6 +50,7 @@ instances:
     ##
     ##   * <FILTER_PROPERTY> the name of the filter; something like 'PercentProcessorTime'
     ##
+    #
     # filters:
     #   - {<FILTER_PROPERTY>: [<FILTER_OPERATOR>, <FILTER_VALUE>]}
     #   - {<FILTER_PROPERTY>: <FILTER_VALUE>}
