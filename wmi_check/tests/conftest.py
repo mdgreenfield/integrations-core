@@ -73,3 +73,22 @@ def mock_disk_sampler():
 
     with patch("datadog_checks.wmi_check.WMICheck._get_wmi_sampler", return_value=sampler):
         yield
+
+
+@pytest.fixture
+def mock_filter_sampler():
+    WMI_Mock = [
+        {
+            "IOReadBytesPerSec": 20455,
+            "IDProcess": 4036,
+            "ThreadCount": 4,
+            "VirtualBytes": 3811,
+            "PercentProcessorTime": 5,
+        }
+    ]
+
+    property_names = ["ThreadCount", "IOReadBytesPerSec", "VirtualBytes", "PercentProcessorTime"]
+    filters = [{"PercentProcessorTime": ['>', 5]}, {"IOReadBytesPerSec": 4}]
+    sampler = MockSampler(WMI_Mock, property_names, filters)
+    with patch("datadog_checks.wmi_check.WMICheck._get_wmi_sampler", return_value=sampler):
+        yield

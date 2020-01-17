@@ -61,3 +61,11 @@ def test_check(mock_disk_sampler, aggregator, check):
         aggregator.assert_metric(mname, tags=["foobar"], count=1)
 
     aggregator.assert_all_metrics_covered()
+
+
+def test_filter(mock_filter_sampler, aggregator, check):
+    instance = copy.deepcopy(common.INSTANCE)
+
+    check.check(instance)
+
+    aggregator.assert_all_metrics_covered()

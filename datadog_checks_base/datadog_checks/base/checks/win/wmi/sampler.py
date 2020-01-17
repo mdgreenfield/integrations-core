@@ -360,10 +360,10 @@ class WMISampler(object):
         Builds filter from a filter list.
         - filters: expects a list of dicts, typically:
                 - [{'Property': value},...] or
-                - [{'Property': (comparison_op, value)},...]
+                - [{'Property': [comparison_op, value]},...]
 
                 NOTE: If we just provide a value we defailt to '=' comparison operator.
-                Otherwise, specify the operator in a tuple as above: (comp_op, value)
+                Otherwise, specify the operator in a list as above: (comp_op, value)
                 If we detect a wildcard character ('%') we will override the operator
                 to use LIKE
         """
@@ -374,7 +374,7 @@ class WMISampler(object):
             while f:
                 prop, value = f.popitem()
 
-                if isinstance(value, tuple):
+                if isinstance(value, list):
                     oper = value[0]
                     value = value[1]
                 elif isinstance(value, string_types) and '%' in value:

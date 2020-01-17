@@ -24,3 +24,15 @@ WMI_CONFIG = {
     'tag_by': 'Name',
     'constant_tags': ['foobar'],
 }
+
+WMI_CONFIG_FILTERS = {
+    'class': 'Win32_PerfFormattedData_PerfDisk_LogicalDisk',
+    'metrics': [
+        ['ThreadCount', 'proc.threads.count', 'gauge'],
+        ['IOReadBytesPerSec', 'proc.io.bytes_read', 'gauge'],
+        ['VirtualBytes', 'proc.mem.virtual', 'gauge'],
+        ['PercentProcessorTime', 'proc.cpu_pct', 'gauge'],
+    ],
+    'filters': [{"PercentProcessorTime": ['>', 5]}, {"IOReadBytesPerSec": 4}],
+    'tag_by': 'Name',
+}
