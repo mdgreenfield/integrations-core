@@ -33,6 +33,6 @@ WMI_CONFIG_FILTERS = {
         ['VirtualBytes', 'proc.mem.virtual', 'gauge'],
         ['PercentProcessorTime', 'proc.cpu_pct', 'gauge'],
     ],
-    'filters': [{"PercentProcessorTime": ['>', 5]}, {"IOReadBytesPerSec": 4}],
+    'filters': [{"PercentProcessorTime": ['>', 6]}, {"IOReadBytesPerSec": 4}],
     'tag_by': 'Name',
 }

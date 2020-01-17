@@ -68,4 +68,5 @@ def test_filter(mock_filter_sampler, aggregator, check):
 
     check.check(instance)
 
-    aggregator.assert_all_metrics_covered()
+    # the only metric that matches the filter
+    aggregator.assert_metric("proc.cpu_pct", count=1)

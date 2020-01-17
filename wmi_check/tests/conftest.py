@@ -83,7 +83,7 @@ def mock_filter_sampler():
             "IDProcess": 4036,
             "ThreadCount": 4,
             "VirtualBytes": 3811,
-            "PercentProcessorTime": 5,
+            "PercentProcessorTime": 6,
         }
     ]
 
