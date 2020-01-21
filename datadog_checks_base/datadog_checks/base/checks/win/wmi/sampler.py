@@ -374,6 +374,8 @@ class WMISampler(object):
             while f:
                 prop, value = f.popitem()
 
+                if isinstance(value, tuple):
+                    self.log.error("Cannot load tuple values")
                 if isinstance(value, list):
                     oper = value[0]
                     value = value[1]

@@ -64,9 +64,17 @@ def test_check(mock_disk_sampler, aggregator, check):
 
 
 def test_filter(mock_filter_sampler, aggregator, check):
-    instance = copy.deepcopy(common.INSTANCE)
+    instance = copy.deepcopy(common.WMI_CONFIG_FILTERS)
 
     check.check(instance)
 
     # the only metric that matches the filter
     aggregator.assert_metric("proc.cpu_pct", count=1)
+
+
+def test_invalid_filter(mock_invalid_filter_sampler, aggregator, check):
+    instance = copy.deepcopy(common.WMI_INVALID_FILTERS)
+
+    check.check(instance)
+
+    check.log.error.assert_any_call("Cannot load tuple values")

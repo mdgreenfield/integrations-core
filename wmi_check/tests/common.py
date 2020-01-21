@@ -36,3 +36,16 @@ WMI_CONFIG_FILTERS = {
     'filters': [{"PercentProcessorTime": ['>', 5]}, {"IOReadBytesPerSec": 4}],
     'tag_by': 'Name',
 }
+
+
+WMI_INVALID_FILTERS = {
+    'class': 'Win32_PerfFormattedData_PerfDisk_LogicalDisk',
+    'metrics': [
+        ['ThreadCount', 'proc.threads.count', 'gauge'],
+        ['IOReadBytesPerSec', 'proc.io.bytes_read', 'gauge'],
+        ['VirtualBytes', 'proc.mem.virtual', 'gauge'],
+        ['PercentProcessorTime', 'proc.cpu_pct', 'gauge'],
+    ],
+    'filters': [{"PercentProcessorTime": ('>', 5)}, {"IOReadBytesPerSec": 4}],
+    'tag_by': 'Name',
+}
