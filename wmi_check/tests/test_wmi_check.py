@@ -64,7 +64,7 @@ def test_check(mock_disk_sampler, aggregator, check):
 
 
 def test_filter(mock_filter_sampler, aggregator, check):
-    instance = copy.deepcopy(common.WMI_CONFIG_FILTERS)
+    instance = copy.deepcopy(common.INSTANCE)
 
     check.check(instance)
 
@@ -73,7 +73,7 @@ def test_filter(mock_filter_sampler, aggregator, check):
 
 
 def test_invalid_filter(mock_invalid_filter_sampler, aggregator, check):
-    instance = copy.deepcopy(common.WMI_INVALID_FILTERS)
+    instance = copy.deepcopy(common.INSTANCE)
 
     check.check(instance)
 

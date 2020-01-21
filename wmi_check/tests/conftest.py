@@ -95,7 +95,7 @@ def mock_filter_sampler():
 
 
 @pytest.fixture
-def mock_invalod_filter_sampler():
+def mock_invalid_filter_sampler():
     WMI_Mock = [
         {
             "IOReadBytesPerSec": 20455,
