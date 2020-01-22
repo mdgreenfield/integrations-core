@@ -5,6 +5,8 @@
 import copy
 import logging
 
+import mock
+
 from . import common
 
 log = logging.getLogger(__file__)
@@ -74,7 +76,7 @@ def test_filter(mock_filter_sampler, aggregator, check):
 
 def test_invalid_filter(mock_invalid_filter_sampler, aggregator, check):
     instance = copy.deepcopy(common.INSTANCE)
-
+    check.log = mock.MagicMock()
     check.check(instance)
 
     check.log.error.assert_any_call("Cannot load tuple values")
