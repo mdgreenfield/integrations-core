@@ -35,6 +35,14 @@ class WMICheck(WinWMICheck):
         wmi_class = instance.get('class')
         metrics = instance.get('metrics')
         filters = instance.get('filters')
+
+        # check to ensure that filters are never tuples
+        for fil in filters[:]:
+            for key, val in fil:
+                if isinstance(val, tuple):
+                    self.log.error("Filter %s must be formatted as list or atomic value, not tuple", key)
+                    filters.remove(fil)
+
         tag_by = instance.get('tag_by', "")
         tag_queries = instance.get('tag_queries', [])
 

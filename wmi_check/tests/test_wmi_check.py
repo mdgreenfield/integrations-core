@@ -79,4 +79,4 @@ def test_invalid_filter(mock_invalid_filter_sampler, aggregator, check):
     check.log = mock.MagicMock()
     check.check(instance)
 
-    check.log.error.assert_any_call("Cannot load tuple values")
+    check.log.error.assert_any_call("Filter PercentProcessorTime must be formatted as list or atomic value, not tuple")
