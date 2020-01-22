@@ -75,7 +75,7 @@ def test_filter(mock_filter_sampler, aggregator, check):
 
 
 def test_invalid_filter(mock_invalid_filter_sampler, aggregator, check):
-    instance = copy.deepcopy(common.INSTANCE)
+    instance = copy.deepcopy(common.WMI_INVALID_FILTERS)
     check.log = mock.MagicMock()
     check.check(instance)
 
